@@ -7,16 +7,17 @@ const randomButton: IElement = {
     ' w-10 h-10 text-blue-900' +
     ' flex items-center justify-center' +
     ' ' +
-    ' focus:text-blue-700 focus:outline-none' +
-    ' hover:text-blue-700',
+    ' focus:text-blue-500 focus:outline-none' +
+    ' hover:text-blue-500',
   subelement: [{ tagName: 'i', classList: 'fad fa-random text-2xl' }]
 }
 
 const navigate: IElement = {
-  tagName: 'div',
+  tagName: 'figure',
   attribute: {},
   classList:
-    'rounded-b-2xl px-4 py-2 flex w-full bg-gradient-to-r from-indigo-100 via-purple-50 to-indigo-100',
+    ' px-4 py-2 w-full rounded-b-2xl flex' +
+    ' bg-gradient-to-r from-indigo-100 via-purple-50 to-indigo-100',
   subelement: [randomButton]
 }
 
@@ -27,7 +28,7 @@ const videoElement: IElement = {
     crossOrigin: 'anonymous',
     preload: 'metadata'
   },
-  classList:'outline-none',
+  classList: 'outline-none',
   subelement: [
     {
       tagName: 'track',
@@ -35,7 +36,7 @@ const videoElement: IElement = {
         label: 'English',
         kind: 'subtitles',
         srclong: 'en',
-        src: 'src/assets/vtt/en.vtt',
+        src: '/en.vtt',
         default: 'default'
       }
     }
@@ -81,8 +82,7 @@ export const rootNode: IElement = {
 
 export const channelLabel: IElement = {
   tagName: 'label',
-  classList: 'text-blue-900 truncate cursor-pointer' +
-   ' col-span-3 row-span-1 '
+  classList: 'text-blue-900 truncate cursor-pointer' + ' col-span-3 row-span-1 '
 }
 
 export const channelLogo: IElement = {
@@ -98,8 +98,7 @@ const icon: IElement = {
   tagName: 'div',
   classList:
     ' text-blue-900 text-4xl' +
-    ' col-span-1 row-span-1 flex items-center justify-center ' +
-    '',
+    ' col-span-1 row-span-1 ',
   subelement: [{ tagName: 'i', classList: 'fad fa-play-circle' }]
 }
 
@@ -111,7 +110,7 @@ export const channelInfo: IElement = {
     ' rounded-md appearance-none border border-indigo-50 ' +
     ' grid grid-rows-3 grid-cols-4' +
     ' focus:text-purple-700 focus:outline-none' +
-    ' hover:text-purple-700 hover:shadow-md' +
-    ' transform hover:scale-105',
+    ' hover:text-purple-700 hover:shadow-md hover:scale-105' +
+    ' transform ',
   subelement: [channelLabel, channelLogo, icon]
 }
