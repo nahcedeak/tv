@@ -14,6 +14,7 @@ const randomButton: IElement = {
 
 const navigate: IElement = {
   tagName: 'figure',
+  id: 'nav',
   attribute: {},
   classList:
     ' px-4 py-2 w-full rounded-b-2xl flex' +
@@ -96,9 +97,7 @@ export const channelLogo: IElement = {
 
 const icon: IElement = {
   tagName: 'div',
-  classList:
-    ' text-blue-900 text-4xl' +
-    ' col-span-1 row-span-1 ',
+  classList: ' text-blue-900 text-4xl' + ' col-span-1 row-span-1 ',
   subelement: [{ tagName: 'i', classList: 'fad fa-play-circle' }]
 }
 

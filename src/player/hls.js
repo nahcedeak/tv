@@ -7047,6 +7047,7 @@ function parseFrameHeader(data, offset, pts, frameIndex, frameDuration) {
 function appendFrame(track, data, offset, pts, frameIndex) {
   const frameDuration = getFrameDuration(track.samplerate)
   const header = parseFrameHeader(data, offset, pts, frameIndex, frameDuration)
+
   if (header) {
     const stamp = header.stamp
     const headerLength = header.headerLength
@@ -19237,6 +19238,7 @@ var FetchLoader = class {
       .fetch(this.request)
       .then(response => {
         this.response = this.loader = response
+
         if (!response.ok) {
           const { status, statusText } = response
           throw new FetchError(

@@ -11,7 +11,7 @@ export class Pages {
   private channels: IItems<string>[]
   init() {
     const body = document.querySelector('body') as HTMLElement
-
+// `${TV_DOMAIN}index.m3u`
     fetch(`${TV_DOMAIN}index.m3u`, { method: 'GET' /*, mode: 'cors'*/ })
       .then(response => {
         if (response.ok) {
