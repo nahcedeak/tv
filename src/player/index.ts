@@ -1,3 +1,4 @@
+import { setElementText } from '../utils'
 import { Hls } from './hls'
 
 const config = {
@@ -21,12 +22,11 @@ export function player(url: string, name: string) {
     hls.loadSource(url)
   })
 
-
   hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
-     console.log(hls.levels)
+    console.log(hls.levels)
 
-    var highestLevel = data.levels.length - 1;
-    hls.loadLevel = highestLevel;
+    var highestLevel = data.levels.length - 1
+    hls.loadLevel = highestLevel
 
     var playPromise = video.play()
     if (playPromise) {
@@ -61,6 +61,7 @@ export function prePlay() {
   const preUrl = localStorage.getItem('preUrl')
   const preName = localStorage.getItem('preName')
   player(preUrl, preName)
+  setElementText('#channelMessage', preName)
 }
 
 var isFullScreen = function () {

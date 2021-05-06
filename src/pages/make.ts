@@ -1,4 +1,4 @@
-import { debounce, deDupsClasslist, qureyUrl } from '../utils'
+import { debounce, deDupsClasslist, qureyUrl, setElementText } from '../utils'
 import { IElement } from '../types/element'
 import { IItems } from '../types/playlist'
 import { channelInfo, channelLabel, channelLogo } from '../datas/elements'
@@ -52,7 +52,6 @@ export function generateButtons(item: IItems<string>) {
   channelLabel.innerHtml = item.name
   channelLogo.attribute['alt'] = item.name
   channelLogo.attribute['src'] = item.tvg.logo
-  // channelInfo.subelement[0].attribute['src'] = item.tvg.logo
 
   const btn = generateNodes([channelInfo], channelList) as HTMLElement
 
@@ -62,7 +61,7 @@ export function generateButtons(item: IItems<string>) {
 function play() {
   const item = arguments[0]
   player(item.url, item.name)
-  // setText(item.name)
+  setElementText('#channelMessage',item.name)
 }
 
 export function randomPlay(item: IItems<string>[]) {
@@ -70,7 +69,10 @@ export function randomPlay(item: IItems<string>[]) {
   const qyUrl = qureyUrl(item[index].url)
   if (qyUrl) {
     player(item[index].url, item[index].name)
+    setElementText('#channelMessage',item[index].name)
   } else {
     console.log('no connection')
   }
 }
+
+

@@ -4,12 +4,32 @@ const randomButton: IElement = {
   id: 'randomBtn',
   tagName: 'button',
   classList:
-    ' w-10 h-10 text-blue-900' +
-    ' flex items-center justify-center' +
-    ' ' +
+    ' w-10 h-10 text-blue-900 ' +
+    ' col-span-1 row-span-1' +
+    ' justify-self-center' +
     ' focus:text-blue-500 focus:outline-none' +
     ' hover:text-blue-500',
   subelement: [{ tagName: 'i', classList: 'fad fa-random text-2xl' }]
+}
+
+const barsButton: IElement = {
+  id: 'barsomBtn',
+  tagName: 'button',
+  classList:
+    ' w-10 h-10 text-blue-900 ' +
+    ' col-span-1 row-span-1' +
+    ' justify-self-center' +
+    ' focus:text-blue-500 focus:outline-none' +
+    ' hover:text-blue-500',
+  subelement: [{ tagName: 'i', classList: 'fad fa-bars text-2xl' }]
+}
+
+const channelMessage: IElement = {
+  tagName: 'div',
+  id: 'channelMessage',
+  classList:
+    ' col-span-8 row-span-1 justify-self-center' + 
+    ' text-2xl text-blue-900 font-bold'
 }
 
 const navigate: IElement = {
@@ -17,9 +37,14 @@ const navigate: IElement = {
   id: 'nav',
   attribute: {},
   classList:
-    ' px-4 py-2 w-full rounded-b-2xl flex' +
+    ' w-full rounded-b-2xl' +
+    ' grid grid-rows-1 grid-cols-10' +
     ' bg-gradient-to-r from-indigo-100 via-purple-50 to-indigo-100',
-  subelement: [randomButton]
+  subelement: [
+    randomButton,
+    channelMessage,
+    barsButton
+  ]
 }
 
 const videoElement: IElement = {
@@ -56,21 +81,14 @@ const channels: IElement = {
   id: 'channel-list',
   tagName: 'div',
   classList:
-    ' grid grid-cols-1 gap-1 my-2' +
+    ' my-2' +
+    ' grid grid-cols-1 gap-1' +
     ' sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
 }
 
 const playerWarp: IElement = {
   tagName: 'div',
   subelement: [videoWarp, channels]
-}
-
-const menuButton: IElement = {
-  tagName: 'button',
-  id: 'channelsMenu',
-  classList:
-    'fixed z-40 bottom-7 right-8 w-10 h-10 rounded-full bg-gray-100 text-purple-700 block focus:outline-none ring-4 ring-purple-700 ring-opacity-70  hover:bg-purple-200',
-  subelement: [{ tagName: 'i', classList: 'fad fa-bars' }]
 }
 
 export const rootNode: IElement = {
