@@ -3,12 +3,3 @@
 .yarn
 .pnp.js
 node_modules
-public
-src/
-# index.html
-package.json
-postcss.config.js
-tailwind.config.js
-tsconfig.base.json
-vite.config.ts
-yarn.lock
