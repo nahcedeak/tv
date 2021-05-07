@@ -122,7 +122,8 @@ export const rootNode: IElement = {
 
 export const channelLabel: IElement = {
   tagName: 'label',
-  classList: 'text-blue-900 truncate cursor-pointer' + ' col-span-3 row-span-1 '
+  classList: 'w-48 text-blue-900 truncate cursor-pointer' + 
+  ' col-span-4 row-span-1 justify-self-center items-center'
 }
 
 export const channelLogo: IElement = {
