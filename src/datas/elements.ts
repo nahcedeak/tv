@@ -30,7 +30,7 @@ const popMenu: IElement = {
     tabindex: '-1'
   },
   classList:
-    ' w-56 h-full z-10 right-3 mt-1 bg-white' +
+    ' w-56 h-full z-10 right-3 mt-1 bg-white invisible' +
     ' origin-top-right absolute  rounded-md shadow-xl' +
     ' border border-indigo-50 ring-1 ring-black ring-opacity-5' +
     ' focus:outline-none',
