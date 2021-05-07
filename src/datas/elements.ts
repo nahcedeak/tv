@@ -34,7 +34,7 @@ const popMenu: IElement = {
     ' origin-top-right absolute  rounded-md shadow-xl' +
     ' border border-indigo-50 ring-1 ring-black ring-opacity-5' +
     ' focus:outline-none',
-  innerHtml: 'aaaaaaa'
+  innerHtml: 'ccccccccccccc'
 }
 
 const menuButton: IElement = {
@@ -122,8 +122,8 @@ export const rootNode: IElement = {
 
 export const channelLabel: IElement = {
   tagName: 'label',
-  classList: 'w-48 text-blue-900 truncate cursor-pointer' + 
-  ' col-span-4 row-span-1 justify-self-center items-center'
+  classList: 'w-full text-blue-900 truncate cursor-pointer' + 
+  ' col-span-4 row-span-1 text-center'
 }
 
 export const channelLogo: IElement = {
