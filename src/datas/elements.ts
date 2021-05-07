@@ -34,7 +34,7 @@ const popMenu: IElement = {
     ' origin-top-right absolute  rounded-md shadow-xl' +
     ' border border-indigo-50 ring-1 ring-black ring-opacity-5' +
     ' focus:outline-none',
-  innerHtml: 'ccccccccccccc'
+  innerHtml: 'test'
 }
 
 const menuButton: IElement = {
@@ -122,8 +122,9 @@ export const rootNode: IElement = {
 
 export const channelLabel: IElement = {
   tagName: 'label',
-  classList: 'w-full text-blue-900 truncate cursor-pointer' + 
-  ' col-span-4 row-span-1 text-center'
+  classList:
+    'w-full text-blue-900 truncate cursor-pointer' +
+    ' col-span-5 row-span-1 text-center'
 }
 
 export const channelLogo: IElement = {
@@ -131,11 +132,14 @@ export const channelLogo: IElement = {
   attribute: {},
   classList:
     ' h-14 w-auto ' +
-    ' col-span-3 row-span-2 object-fill justify-self-center' +
+    ' col-span-4 row-span-2 object-fill justify-self-center' +
     ' text-gray-400 text-sm italic'
 }
 
-const icon: IElement = { tagName: 'i', classList: 'mx-2 fad fa-play text-4xl text-blue-900' }
+const icon: IElement = {
+  tagName: 'i',
+  classList: 'fad fa-play text-4xl text-blue-900'
+}
 
 export const channelButton: IElement = {
   tagName: 'div',
@@ -143,7 +147,7 @@ export const channelButton: IElement = {
     ' m-1 h-24 p-1 bg-white shadow-md' +
     ' font-bold antialiased text-bule-500 text-xl' +
     ' rounded-md appearance-none border border-indigo-50 ' +
-    ' grid grid-rows-3 grid-cols-4' +
+    ' grid grid-rows-3 grid-cols-5' +
     ' focus:text-purple-700 focus:outline-none' +
     ' hover:text-purple-700 hover:shadow-md hover:scale-105' +
     ' transform ',
