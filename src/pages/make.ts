@@ -1,7 +1,7 @@
 import { debounce, deDupsClasslist, qureyUrl, setElementText } from '../utils'
 import { IElement } from '../types/element'
 import { IItems } from '../types/playlist'
-import { channelInfo, channelLabel, channelLogo } from '../datas/elements'
+import { channelButton, channelLabel, channelLogo } from '../datas/elements'
 import { player } from '../player'
 
 export function generateNodes(
@@ -53,7 +53,7 @@ export function generateButtons(item: IItems<string>) {
   channelLogo.attribute['alt'] = item.name
   channelLogo.attribute['src'] = item.tvg.logo
 
-  const btn = generateNodes([channelInfo], channelList) as HTMLElement
+  const btn = generateNodes([channelButton], channelList) as HTMLElement
 
   btn.addEventListener('click', debounce(play).bind({}, item))
 }
