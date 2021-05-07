@@ -6,7 +6,7 @@ const randomButton: IElement = {
   classList:
     ' w-10 h-10 text-blue-900' +
     ' col-span-1 row-span-1' +
-    ' justify-self-center items-center' +
+    ' justify-self-end items-center' +
     ' focus:text-blue-500 focus:outline-none' +
     ' hover:text-blue-500',
   subelement: [{ tagName: 'i', classList: 'fad fa-random text-2xl' }]
@@ -32,9 +32,9 @@ const popMenu: IElement = {
   classList:
     ' w-56 h-full z-10 right-3 mt-1 bg-white invisible' +
     ' origin-top-right absolute  rounded-md shadow-xl' +
-    ' border border-indigo-50 ring-1 ring-black ring-opacity-5' +
+    ' border border-indigo-50' +
     ' focus:outline-none',
-  innerHtml: 'test'
+  innerHtml: 'test111111111'
 }
 
 const menuButton: IElement = {
@@ -53,7 +53,7 @@ const menuButton: IElement = {
 const bars: IElement = {
   tagName: 'div',
   id: 'bars',
-  classList: 'col-span-1 row-span-1 justify-self-center',
+  classList: 'col-span-1 row-span-1 justify-self-start',
   subelement: [menuButton, popMenu]
 }
 
