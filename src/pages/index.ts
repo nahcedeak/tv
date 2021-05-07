@@ -2,7 +2,7 @@ import { M3U_JP, TV_DOMAIN } from '../datas/constants'
 import { rootNode } from '../datas/elements'
 import { prePlay } from '../player'
 import { playlistParser, qureyUrl } from '../utils'
-import { generateButtons, generateNodes } from './make'
+import { generateButtons, generateMenu, generateNodes } from './make'
 import { IItems, IPlaylist } from '../types/playlist'
 import { addElementEventListeners } from './listeners'
 
@@ -12,11 +12,7 @@ export class Pages {
   init() {
     const body = document.querySelector('body') as HTMLElement
     // `${TV_DOMAIN}index.m3u`
-    fetch(`${TV_DOMAIN}index.m3u`, {
-      method: 'GET',
-      mode: 'cors',
-      credentials: 'omit'
-    })
+    fetch(`${TV_DOMAIN}index.m3u`, )
       .then(response => {
         if (response.ok) {
           return response.text()
@@ -37,18 +33,17 @@ export class Pages {
         pl.items.forEach(item => {
           const qyUrl = qureyUrl(item.url!)
           if (qyUrl) {
-            // if (item.group.title === 'Asian') {
             item.url = qyUrl
             setTimeout(() => {
               generateButtons(item)
-            }, 500)
-            // }
+            }, 50)
           }
         })
 
         prePlay()
 
         addElementEventListeners(this.channels)
+        generateMenu()
       })
   }
 }

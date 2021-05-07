@@ -5,7 +5,7 @@ const randomButton: IElement = {
   id: 'randomBtn',
   classList:
     ' w-10 h-10 text-blue-900' +
-    ' col-span-1 row-span-1' +
+    ' col-span-2 row-span-1' +
     ' justify-self-end items-center' +
     ' focus:text-blue-500 focus:outline-none' +
     ' hover:text-blue-500',
@@ -16,13 +16,13 @@ const channelMessage: IElement = {
   tagName: 'div',
   id: 'channelMessage',
   classList:
-    ' col-span-8 row-span-1 justify-self-center' +
+    ' col-span-6 row-span-1 justify-self-center' +
     ' text-2xl text-blue-900 font-bold'
 }
 
-const popMenu: IElement = {
+const menuPop: IElement = {
   tagName: 'div',
-  id: 'pop-menu',
+  id: 'menu-pop',
   attribute: {
     role: 'menu',
     'aria-orientation': 'vertical',
@@ -30,11 +30,10 @@ const popMenu: IElement = {
     tabindex: '-1'
   },
   classList:
-    ' w-56 h-full z-10 right-3 mt-1 bg-white invisible' +
-    ' origin-top-right absolute  rounded-md shadow-xl' +
+    ' w-auto h-auto z-10 mx-28 p-2 mt-2 right-0 bg-white invisible' +
+    ' origin-top-right absolute  rounded-md shadow-2xl' +
     ' border border-indigo-50' +
-    ' focus:outline-none',
-  innerHtml: 'test111111111'
+    ' focus:outline-none'
 }
 
 const menuButton: IElement = {
@@ -47,14 +46,17 @@ const menuButton: IElement = {
     ' justify-self-center items-center' +
     ' focus:outline-none' +
     ' hover:text-blue-500',
-  subelement: [{ tagName: 'i', classList: 'fad fa-bars text-2xl' }]
+  subelement: [
+    { tagName: 'i', classList: 'fad fa-yin-yang fa-pulse text-2xl' },
+    { tagName: 'i', classList: 'fad fa-times text-2xl  hidden' }
+  ]
 }
 
 const bars: IElement = {
   tagName: 'div',
   id: 'bars',
-  classList: 'col-span-1 row-span-1 justify-self-start',
-  subelement: [menuButton, popMenu]
+  classList: 'col-span-2 row-span-1 justify-self-start',
+  subelement: [menuButton, menuPop]
 }
 
 const navigate: IElement = {
@@ -76,18 +78,6 @@ const videoElement: IElement = {
     preload: 'metadata'
   },
   classList: 'outline-none',
-  subelement: [
-    {
-      tagName: 'track',
-      attribute: {
-        label: 'English',
-        kind: 'subtitles',
-        srclong: 'en',
-        src: '/en.vtt',
-        default: 'default'
-      }
-    }
-  ]
 }
 
 const videoWarp: IElement = {
@@ -99,12 +89,13 @@ const videoWarp: IElement = {
 }
 
 const channels: IElement = {
-  id: 'channel-list',
   tagName: 'div',
+  id: 'channel-list',
+  attribute: { disabled: ''}, // disabled: '',
   classList:
-    ' my-2' +
+    ' h-max filter' +
     ' grid grid-cols-1 gap-1' +
-    ' sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
+    ' sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6',
 }
 
 const playerWarp: IElement = {
@@ -114,16 +105,14 @@ const playerWarp: IElement = {
 
 export const rootNode: IElement = {
   tagName: 'div',
-  classList:
-    ' bg-white font-mono w-screen h-screen shadow-xl mx-auto' +
-    ' rounded-b-3xl overflow-auto',
+  classList: ' bg-gray-100 font-mono ',
   subelement: [playerWarp]
 }
 
 export const channelLabel: IElement = {
   tagName: 'label',
   classList:
-    'w-full text-blue-900 truncate cursor-pointer' +
+    ' w-full text-blue-900 truncate cursor-pointer' +
     ' col-span-5 row-span-1 text-center'
 }
 
@@ -138,18 +127,23 @@ export const channelLogo: IElement = {
 
 const icon: IElement = {
   tagName: 'i',
-  classList: 'fad fa-play text-4xl text-blue-900'
+  classList: 'fad fa-play-circle text-4xl text-blue-900  '
 }
 
-export const channelButton: IElement = {
+export const channelInfo: IElement = {
   tagName: 'div',
   classList:
-    ' m-1 h-24 p-1 bg-white shadow-md' +
+    ' mx-3 my-2 h-24 bg-white shadow-lg cursor-pointer' +
     ' font-bold antialiased text-bule-500 text-xl' +
-    ' rounded-md appearance-none border border-indigo-50 ' +
+    ' rounded-md appearance-none ' +
     ' grid grid-rows-3 grid-cols-5' +
     ' focus:text-purple-700 focus:outline-none' +
-    ' hover:text-purple-700 hover:shadow-md hover:scale-105' +
-    ' transform ',
+    ' hover:text-purple-700 hover:shadow-lg' +
+    ' transform hover:scale-105',
   subelement: [channelLabel, channelLogo, icon]
+}
+
+export const menuItem:IElement ={
+  tagName: 'button',
+  classList:'m-2 cursor-pointer'
 }

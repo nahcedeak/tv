@@ -76,51 +76,6 @@ https://movie.mcas.jp/mcas/smil:wn1.smil/master.m3u8
 
 `
 
-
-// #EXTINF:-1 tvg-id="A1Tai.hk" tvg-name="A1台" tvg-country="HK" tvg-language="Chinese;Yue Chinese" tvg-logo="https://upload.wikimedia.org/wikipedia/zh/thumb/8/80/ATV_A1_logo.jpg/300px-ATV_A1_logo.jpg" group-title="General",A1台 (720p)
-// https://15813114727637862976168173814320.live.prod.hkatv.com/a1_cbr_lo.m3u8
-// #EXTINF:-1 tvg-id="CelestialClassicMovies.hk" tvg-name="Celestial Classic Movies" tvg-country="MY" tvg-language="" tvg-logo="https://1.bp.blogspot.com/-JitJUuWTMxg/VH--1LtXqGI/AAAAAAAAAo0/FL_bgsBFjeU/s1600/CELESTIAL%2BCLASSIC%2BMOVIES%2Blogo.png" group-title="",Celestial Classic 天映经典
-// http://50.7.161.82:8278/streams/d/Celestial2/playlist.m3u8
-// #EXTINF:-1 tvg-id="CelestialMovies.hk" tvg-name="Celestial Movies" tvg-country="HK;SG;MY;ID;TW;BN;BD" tvg-language="Chinese" tvg-logo="https://astrocontent.s3.amazonaws.com/Images/ChannelLogo/Pos/322_300.png" group-title="Movies",Celestial Movies (480p)
-// http://210.210.155.35/qwr9ew/s/s33/index.m3u8
-// #EXTINF:-1 tvg-id="CelestialMoviesMalaysia.hk" tvg-name="Celestial Movies Malaysia" tvg-country="MY" tvg-language="" tvg-logo="https://upload.wikimedia.org/wikipedia/id/thumb/a/af/CMC_English_full_color_black_text_2.jpg/200px-CMC_English_full_color_black_text_2.jpg" group-title="",Celestial Movies 天映频道
-// http://50.7.161.82:8278/streams/d/Celestial/playlist.m3u8
-// #EXTINF:-1 tvg-id="Kix.hk" tvg-name="Kix" tvg-country="MY" tvg-language="Malay (macrolanguage)" tvg-logo="https://i.imgur.com/mX1nnGy.png" group-title="Entertainment",Kix
-// http://210.210.155.35/uq2663/h/h07/01.m3u8
-// #EXTINF:-1 tvg-id="Kix.hk" tvg-name="Kix" tvg-country="MY" tvg-language="" tvg-logo="https://astrocontent.s3.amazonaws.com/Images/ChannelLogo/Pos/705_300.png" group-title="",Kix
-// https://livecdn.fptplay.net/hda/kixhd_hls.smil/chunklist_b2500000.m3u8
-// #EXTINF:-1 tvg-id="RTHKGangTaiDianShi31.hk" tvg-name="RTHK (港台電視31)" tvg-country="HK" tvg-language="" tvg-logo="http://tv.sason.xyz/logo/rthk31.png" group-title="",RTHK (港台電視31)
-// http://rthklive1-lh.akamaihd.net/i/rthk31_1@167495/index_2052_av-p.m3u8?sd=10&rebase=on
-// #EXTINF:-1 tvg-id="RTHKGangTaiDianShi32.hk" tvg-name="RTHK (港台電視32)" tvg-country="HK" tvg-language="" tvg-logo="" group-title="",RTHK (港台電視32)
-// https://rthklive2-lh.akamaihd.net/i/rthk32_1@168450/index_1080_av-b.m3u8
-// #EXTINF:-1 tvg-id="RTHKGangTaiDianShi32.hk" tvg-name="RTHK (港台電視32)" tvg-country="HK" tvg-language="" tvg-logo="http://tv.sason.xyz/logo/rthk32.png" group-title="",RTHK (港台電視32)
-// https://rthklive2-lh.akamaihd.net/i/rthk32_1@168450/index_1080_av-b.m3u8?sd=10&rebase=on
-// #EXTINF:-1 tvg-id="RTHKTV31.hk" tvg-name="RTHK TV 31" tvg-country="HK" tvg-language="" tvg-logo="https://i.imgur.com/H36G8wZ.png" group-title="",RTHK TV 31
-// http://rthklive1-lh.akamaihd.net/i/rthk31_1@167495/index_810_av-b.m3u8
-// #EXTINF:-1 tvg-id="RTHKTV32.hk" tvg-name="RTHK TV 32" tvg-country="HK" tvg-language="" tvg-logo="" group-title="",RTHK TV 32
-// https://rthklive2-lh.akamaihd.net/i/rthk32_1@168450/index_702_av-b.m3u8
-// #EXTINF:-1 tvg-id="RTHKTV32.hk" tvg-name="RTHK TV 32" tvg-country="HK" tvg-language="" tvg-logo="https://i.imgur.com/fmzC0MN.png" group-title="",RTHK TV 32
-// https://rthklive2-lh.akamaihd.net/i/rthk32_1@168450/index_702_av-b.m3u8?sd=10&rebase=on
-// #EXTINF:-1 tvg-id="RTHK31.hk" tvg-name="RTHK31" tvg-country="HK" tvg-language="" tvg-logo="https://gitee.com/radioer/radioer/raw/main/RTHK31.png" group-title="",RTHK31
-// http://rthklive1-lh.akamaihd.net:80/i/rthk31_1@167495/index_2052_av-p.m3u8
-// #EXTINF:-1 tvg-id="RTHK32.hk" tvg-name="RTHK32" tvg-country="HK" tvg-language="" tvg-logo="https://gitee.com/radioer/radioer/raw/main/RTHK32.png" group-title="",RTHK32
-// https://rthklive2-lh.akamaihd.net/i/rthk32_1@168450/index_1080_av-p.m3u8
-// #EXTINF:-1 tvg-id="StarSports.hk" tvg-name="Star Sports" tvg-country="SAS" tvg-language="English" tvg-logo="https://photo.sofun.tw/2013/11/STAR-SPORTS-LOGO.jpg" group-title="Sport",Star Sports
-// rtmp://ivi.bupt.edu.cn:1935/livetv/starsports
-// #EXTINF:-1 tvg-id="StarSports2HD.hk" tvg-name="Star Sports 2 HD" tvg-country="HK;IN" tvg-language="English" tvg-logo="https://upload.wikimedia.org/wikipedia/en/4/49/Star_Sports_India_logo1.png" group-title="Sport",Star Sports 2 HD
-// https://cdn.hkdtmb.com/hls/81/index.m3u8
-// #EXTINF:-1 tvg-id="YaoCaiCaiJingTai.hk" tvg-name="耀才財經台" tvg-country="HK" tvg-language="Chinese;Yue Chinese" tvg-logo="https://i.imgur.com/xliVoIt.jpg?1" group-title="Shop",耀才財經台
-// http://202.69.67.66:443/webcast/bshdlive-pc/playlist.m3u8
-// #EXTINF:-1 tvg-id="XiangGangKaiDianShiHKSTVHKS.hk" tvg-name="香港开电视 / HKSTV-HKS" tvg-country="HK" tvg-language="" tvg-logo="" group-title="",香港开电视 / HKSTV-HKS
-// http://media.fantv.hk/m3u8/archive/channel2.m3u8
-// #EXTINF:-1 tvg-id="XiangGangWeiShi.hk" tvg-name="香港衛視" tvg-country="HK" tvg-language="Chinese;Mandarin Chinese" tvg-logo="https://i.imgur.com/wnQPn2d.jpg" group-title="",香港衛視
-// http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8
-// #EXTINF:-1 tvg-id="XiangGangKaiDianShi.hk" tvg-name="香港開電視" tvg-country="HK" tvg-language="Chinese;Yue Chinese" tvg-logo="https://upload.wikimedia.org/wikipedia/zh/e/ed/HK_open_tv_logo.jpg" group-title="General",香港開電視
-// http://117.169.120.138:8080/live/fhzixun/.m3u8
-// #EXTINF:-1 tvg-id="FengHuangWeiShiDianYingTai.hk" tvg-name="鳳凰衛視電影台" tvg-country="HK" tvg-language="Chinese" tvg-logo="https://p1.ifengimg.com/a/2018_43/45a9d426b4ae58c.jpg" group-title="",鳳凰衛視電影台
-// rtmp://ivi.bupt.edu.cn:1935/livetv/fhdy
-
-
 export const CN_RE = /[\u4e00-\u9fa5]/
 
 export const AGE_RE = /^i\sam\s(.*?)/i
@@ -128,3 +83,9 @@ export const AGE_RE = /^i\sam\s(.*?)/i
 export const VALUE_RE = /[a-z]{2,9}/i
 
 export const TV_DOMAIN = 'https://iptv-org.github.io/iptv/'
+
+export const REQUEST_INIT: RequestInit = {
+  method: 'GET',
+  mode: 'cors',
+  credentials: 'omit'
+}

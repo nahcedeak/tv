@@ -1,8 +1,23 @@
-import { debounce, deDupsClasslist, qureyUrl, setElementText } from '../utils'
+import {
+  debounce,
+  deDupsClasslist,
+  playlistParser,
+  qureyUrl,
+  setElementText
+} from '../utils'
 import { IElement } from '../types/element'
 import { IItems } from '../types/playlist'
-import { channelButton, channelLabel, channelLogo } from '../datas/elements'
+import {
+  channelInfo,
+  channelLabel,
+  channelLogo,
+  menuItem
+} from '../datas/elements'
 import { player } from '../player'
+import { categories } from '../datas/categories'
+import { REQUEST_INIT, TV_DOMAIN } from '../datas/constants'
+import { getAllJSDocTagsOfKind } from 'typescript'
+import { menuHandle } from './listeners'
 
 export function generateNodes(
   nodeDatas: IElement[],
@@ -47,13 +62,13 @@ export function generateElements(
   return el
 }
 
-export function generateButtons(item: IItems<string>) {
+export async function generateButtons(item: IItems<string>) {
   const channelList = document.querySelector('#channel-list') as HTMLDivElement
   channelLabel.innerHtml = item.name
   channelLogo.attribute['alt'] = item.name
   channelLogo.attribute['src'] = item.tvg.logo
 
-  const btn = generateNodes([channelButton], channelList) as HTMLElement
+  const btn = generateNodes([channelInfo], channelList) as HTMLElement
 
   btn.addEventListener('click', debounce(play).bind({}, item))
 }
@@ -61,7 +76,7 @@ export function generateButtons(item: IItems<string>) {
 function play() {
   const item = arguments[0]
   player(item.url, item.name)
-  setElementText('#channelMessage',item.name)
+  setElementText('#channelMessage', item.name)
 }
 
 export function randomPlay(item: IItems<string>[]) {
@@ -69,10 +84,63 @@ export function randomPlay(item: IItems<string>[]) {
   const qyUrl = qureyUrl(item[index].url)
   if (qyUrl) {
     player(item[index].url, item[index].name)
-    setElementText('#channelMessage',item[index].name)
+    setElementText('#channelMessage', item[index].name)
   } else {
     setElementText('no channel')
   }
 }
 
+export function generateMenu() {
+  categories.forEach(category => {
+    generateCategories(category)
+  })
+}
 
+function generateCategories(category: string) {
+  const menuPop = document.querySelector('#menu-pop') as HTMLElement
+  menuItem.innerHtml = category
+
+  const btn = generateNodes([menuItem], menuPop) as HTMLElement
+
+  btn.addEventListener('click', menuEventHandle.bind({}, category))
+}
+
+function menuEventHandle() {
+  const category = arguments[0]
+  console.log(arguments)
+  fetch(`${TV_DOMAIN}categories/${category.toLowerCase()}.m3u`, REQUEST_INIT)
+    .then(response => {
+      if (response.ok) {
+        return response.text()
+      } else {
+        new Error(`Network response was not ok.`)
+      }
+    })
+    .then(response => {
+      const playlist = playlistParser(response)
+      clearList()
+
+      if ( playlist.items.length > 100) {
+        for (let i = 0; i < 100; i++) {
+          const item = playlist.items[i];
+          formatItem(item)
+        }
+      }
+
+      menuHandle()
+    })
+}
+
+function formatItem(item: IItems<string>) {
+  const qyUrl = qureyUrl(item.url)
+  if (qyUrl) {
+    item.url = qyUrl
+    setTimeout(() => {
+      generateButtons(item)
+    }, 50)
+  }
+}
+
+function clearList() {
+  document.querySelector('#channel-list')!.innerHTML = ''
+}
