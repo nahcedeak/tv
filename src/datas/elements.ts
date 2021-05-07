@@ -34,7 +34,7 @@ const popMenu: IElement = {
     ' origin-top-right absolute  rounded-md shadow-xl' +
     ' border border-indigo-50 ring-1 ring-black ring-opacity-5' +
     ' focus:outline-none',
-  subelement: []
+  innerHtml: 'aaaaaaa'
 }
 
 const menuButton: IElement = {
@@ -103,8 +103,8 @@ const channels: IElement = {
   tagName: 'div',
   classList:
     ' my-2' +
-    ' grid grid-cols-1 gap-1'// +
-    // ' sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
+    ' grid grid-cols-1 gap-1' +
+    ' sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
 }
 
 const playerWarp: IElement = {
@@ -137,7 +137,7 @@ export const channelLogo: IElement = {
 const icon: IElement = { tagName: 'i', classList: 'mx-2 fad fa-play text-4xl text-blue-900' }
 
 export const channelButton: IElement = {
-  tagName: 'button',
+  tagName: 'div',
   classList:
     ' m-1 h-24 p-1 bg-white shadow-md' +
     ' font-bold antialiased text-bule-500 text-xl' +
