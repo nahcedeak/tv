@@ -71,7 +71,7 @@ export function randomPlay(item: IItems<string>[]) {
     player(item[index].url, item[index].name)
     setElementText('#channelMessage',item[index].name)
   } else {
-    console.log('no connection')
+    setElementText('no channel')
   }
 }
 

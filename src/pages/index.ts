@@ -11,8 +11,12 @@ export class Pages {
   private channels: IItems<string>[]
   init() {
     const body = document.querySelector('body') as HTMLElement
-// `${TV_DOMAIN}index.m3u`
-    fetch(`${TV_DOMAIN}index.m3u`, { method: 'GET' /*, mode: 'cors'*/ })
+    // `${TV_DOMAIN}index.m3u`
+    fetch(`${TV_DOMAIN}index.m3u`, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'omit'
+    })
       .then(response => {
         if (response.ok) {
           return response.text()
@@ -33,10 +37,12 @@ export class Pages {
         pl.items.forEach(item => {
           const qyUrl = qureyUrl(item.url!)
           if (qyUrl) {
+            // if (item.group.title === 'Asian') {
             item.url = qyUrl
             setTimeout(() => {
               generateButtons(item)
             }, 500)
+            // }
           }
         })
 

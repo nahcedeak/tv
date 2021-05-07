@@ -1,35 +1,60 @@
 import { IElement } from '../types/element'
 
 const randomButton: IElement = {
-  id: 'randomBtn',
   tagName: 'button',
+  id: 'randomBtn',
   classList:
-    ' w-10 h-10 text-blue-900 ' +
+    ' w-10 h-10 text-blue-900' +
     ' col-span-1 row-span-1' +
-    ' justify-self-center' +
+    ' justify-self-center items-center' +
     ' focus:text-blue-500 focus:outline-none' +
     ' hover:text-blue-500',
   subelement: [{ tagName: 'i', classList: 'fad fa-random text-2xl' }]
-}
-
-const barsButton: IElement = {
-  id: 'barsomBtn',
-  tagName: 'button',
-  classList:
-    ' w-10 h-10 text-blue-900 ' +
-    ' col-span-1 row-span-1' +
-    ' justify-self-center' +
-    ' focus:text-blue-500 focus:outline-none' +
-    ' hover:text-blue-500',
-  subelement: [{ tagName: 'i', classList: 'fad fa-bars text-2xl' }]
 }
 
 const channelMessage: IElement = {
   tagName: 'div',
   id: 'channelMessage',
   classList:
-    ' col-span-8 row-span-1 justify-self-center' + 
+    ' col-span-8 row-span-1 justify-self-center' +
     ' text-2xl text-blue-900 font-bold'
+}
+
+const popMenu: IElement = {
+  tagName: 'div',
+  id: 'pop-menu',
+  attribute: {
+    role: 'menu',
+    'aria-orientation': 'vertical',
+    'aria-labelledby': 'menu-button',
+    tabindex: '-1'
+  },
+  classList:
+    ' w-56 h-full z-10 right-3 mt-1 bg-white' +
+    ' origin-top-right absolute  rounded-md shadow-xl' +
+    ' border border-indigo-50 ring-1 ring-black ring-opacity-5' +
+    ' focus:outline-none',
+  subelement: []
+}
+
+const menuButton: IElement = {
+  tagName: 'button',
+  id: 'menu-button',
+  attribute: { 'aria-expanded': 'true', 'aria-haspopup': 'true' },
+  classList:
+    ' w-10 h-10 text-blue-900' +
+    ' col-span-1 row-span-1' +
+    ' justify-self-center items-center' +
+    ' focus:outline-none' +
+    ' hover:text-blue-500',
+  subelement: [{ tagName: 'i', classList: 'fad fa-bars text-2xl' }]
+}
+
+const bars: IElement = {
+  tagName: 'div',
+  id: 'bars',
+  classList: 'col-span-1 row-span-1 justify-self-center',
+  subelement: [menuButton, popMenu]
 }
 
 const navigate: IElement = {
@@ -38,13 +63,9 @@ const navigate: IElement = {
   attribute: {},
   classList:
     ' w-full rounded-b-2xl' +
-    ' grid grid-rows-1 grid-cols-10' +
+    ' grid grid-rows-1 grid-cols-10 items-center' +
     ' bg-gradient-to-r from-indigo-100 via-purple-50 to-indigo-100',
-  subelement: [
-    randomButton,
-    channelMessage,
-    barsButton
-  ]
+  subelement: [randomButton, channelMessage, bars]
 }
 
 const videoElement: IElement = {
@@ -72,7 +93,7 @@ const videoElement: IElement = {
 const videoWarp: IElement = {
   tagName: 'div',
   classList:
-    ' top-0 bg-gray-800 rounded-b-3xl z-40 sticky' +
+    ' top-0 bg-gray-800 rounded-b-3xl z-40 sticky' + //sticky
     ' grid justify-items-center',
   subelement: [videoElement, navigate]
 }
@@ -113,11 +134,7 @@ export const channelLogo: IElement = {
     ' text-gray-400 text-sm italic'
 }
 
-const icon: IElement = {
-  tagName: 'div',
-  classList: ' text-blue-900 text-4xl' + ' col-span-1 row-span-1 ',
-  subelement: [{ tagName: 'i', classList: 'fad fa-play-circle' }]
-}
+const icon: IElement = { tagName: 'i', classList: 'mx-2 fad fa-play text-4xl text-blue-900' }
 
 export const channelInfo: IElement = {
   tagName: 'button',

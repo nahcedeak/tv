@@ -19,11 +19,14 @@ export function player(url: string, name: string) {
   const hls = new Hls(config)
   hls.attachMedia(video)
   hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-    hls.loadSource(url)
+    hls.loadSource(url) //https://12156.vod.adultiptv.net/ph5adecf7111738/play.m3u8
   })
 
   hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
     console.log(hls.levels)
+    if (hls.levels.length > 1) {
+      hls.loadSource(hls.levels[hls.levels.length - 1].url[0])
+    }
 
     var highestLevel = data.levels.length - 1
     hls.loadLevel = highestLevel
@@ -32,9 +35,9 @@ export function player(url: string, name: string) {
     if (playPromise) {
       playPromise.catch(function (error) {
         console.log(
-          '[test] > video.play() failed with error: ' +
+          ' > video.play() failed with error: [ ' +
             error.name +
-            ' 💣 ' +
+            ' ] 💣 🗡 ' +
             error.message
         )
         if (error.name === 'NotAllowedError') {
