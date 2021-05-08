@@ -18,6 +18,7 @@ export function addElementEventListeners(channels: IItems<string>[]) {
 }
 
 function scrollEventHandle(e?: Event) {
+  setElementText('#channel-message',navigator.userAgent)
   testScroll()
   if (isBottom() && playlist) {
     generateItems(20)
@@ -50,7 +51,7 @@ function isBottom() {
 }
 
 function testScroll() {
-  setElementText('#channel-message',
+  console.log(
     `doc body clientWidth [ ${document.body.clientWidth} ]
     doc body clientHeight [ ${document.body.clientHeight} ]
     doc body offsetWidth [ ${document.body.offsetWidth} ]
