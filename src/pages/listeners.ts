@@ -19,9 +19,9 @@ export function addElementEventListeners(channels: IItems<string>[]) {
 
 function scrollEventHandle(e?: Event) {
   // setElementText('#channel-message',navigator.userAgent)
-  // testScroll()
-  const rb = document.querySelector('#random-button>svg')
-  rb.classList.toggle('fa-spin')
+  if (/Mobile/i.test(navigator.userAgent)) {
+    alert('Mobile')
+  }
   if (isBottom() && playlist) {
     generateItems(20)
   }
