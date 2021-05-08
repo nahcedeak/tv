@@ -1,5 +1,5 @@
 import { IItems } from '../types/playlist'
-import { debounce } from '../utils'
+import { debounce, setElementText } from '../utils'
 import { playlist, randomPlay } from './make'
 import { generateItems } from './make'
 
@@ -38,7 +38,7 @@ function isBottom() {
   const docClientHeight = document.documentElement.clientHeight
   const docScrollHeight = document.documentElement.scrollHeight
 
-  alert(docScrollTop + ' ' + docClientHeight + ' ' + docScrollHeight)
+  setElementText(docScrollTop + ' ' + docClientHeight + ' ' + docScrollHeight)
 
   return docScrollTop + docClientHeight === docScrollHeight ? true : false
 }
