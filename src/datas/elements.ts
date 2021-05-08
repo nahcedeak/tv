@@ -147,7 +147,7 @@ export const channelInfo: IElement = {
 export const menuItem: IElement = {
   tagName: 'div',
   classList:
-    ' m-1 px-4 py-1 font-bold  text-xl text-blue-900 ' +
+    ' m-1 px-4 text-blue-900 ' +
     ' rounded-full shadow-md antialiased  cursor-pointer' +
     ' inline-block border border-indigo-50' +
     ' hover:bg-gray-100'
