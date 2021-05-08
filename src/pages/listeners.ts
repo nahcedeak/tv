@@ -20,9 +20,8 @@ export function addElementEventListeners(channels: IItems<string>[]) {
 function scrollEventHandle(e?: Event) {
   // setElementText('#channel-message',navigator.userAgent)
   if (/Mobile/i.test(navigator.userAgent)) {
-    alert('Mobile')
-  }
-  if (isBottom() && playlist) {
+    generateItems(20)
+  }else if (isBottom() && playlist) {
     generateItems(20)
   }
 }
