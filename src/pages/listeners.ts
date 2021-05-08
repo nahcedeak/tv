@@ -25,7 +25,7 @@ export function menuHandle(e?: Event) {
   ) as HTMLButtonElement
   channelList.classList.toggle('blur-sm')
 
-  document.querySelector('#menu-pop').classList.toggle('invisible')
+  document.querySelector('#menu-pop').classList.toggle('hidden')
   document
     .querySelectorAll('#menu-button>svg')
     .forEach(i => i.classList.toggle('hidden'))

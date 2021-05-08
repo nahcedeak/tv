@@ -5,7 +5,7 @@ const randomButton: IElement = {
   id: 'randomBtn',
   classList:
     ' w-10 h-10 text-blue-900' +
-    ' col-span-2 row-span-1 rounded-full bg-black' +
+    ' col-span-2 row-span-1 rounded-full' +
     ' justify-self-end items-center' +
     ' focus:text-blue-500 focus:outline-none' +
     ' hover:text-blue-500',
@@ -30,7 +30,7 @@ const menuPop: IElement = {
     tabindex: '-1'
   },
   classList:
-    ' w-auto h-auto z-10 mx-8 p-2 mt-2 right-0 bg-white invisible' +
+    ' w-auto h-auto z-10 mx-8 p-2 mt-2 right-0 bg-white hidden' +
     ' origin-top-right absolute  rounded-md shadow-2xl' +
     ' border border-indigo-50' +
     ' focus:outline-none'
@@ -41,7 +41,7 @@ const menuButton: IElement = {
   id: 'menu-button',
   attribute: { 'aria-expanded': 'true', 'aria-haspopup': 'true' },
   classList:
-    ' w-10 h-10 mt-1 bg-black text-blue-900' +
+    ' w-10 h-10 mt-1 bg-red-50 text-blue-900' +
     ' col-span-1 row-span-1 rounded-full ' +
     ' justify-self-center items-center' +
     ' focus:outline-none' +
