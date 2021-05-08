@@ -32,8 +32,8 @@ const menuPop: IElement = {
   classList:
     ' w-auto h-auto z-10 mx-8 p-2 mt-2 right-0 bg-white hidden' +
     ' origin-top-right absolute  rounded-md shadow-2xl' +
-    ' border border-indigo-50' +
-    ' focus:outline-none'
+    ' border border-indigo-50 ' +
+    ' focus:outline-none overflow-auto'
 }
 
 const menuButton: IElement = {
@@ -121,7 +121,7 @@ export const channelLogo: IElement = {
   tagName: 'img',
   attribute: {},
   classList:
-    ' h-14 w-auto shadow-sm p-2' +
+    ' h-14 w-auto p-2 rounded-md' +
     ' col-span-4 row-span-2 object-fill justify-self-center' +
     ' text-gray-400 text-sm italic'
 }
