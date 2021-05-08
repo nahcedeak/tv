@@ -6,7 +6,7 @@ import {
   setElementText
 } from '../utils'
 import { IElement } from '../types/element'
-import { IItems } from '../types/playlist'
+import { IItems, IPlaylist } from '../types/playlist'
 import {
   channelInfo,
   channelLabel,
@@ -16,7 +16,6 @@ import {
 import { player } from '../player'
 import { categories } from '../datas/categories'
 import { REQUEST_INIT, TV_DOMAIN } from '../datas/constants'
-import { getAllJSDocTagsOfKind } from 'typescript'
 import { menuHandle } from './listeners'
 
 export function generateNodes(
@@ -66,7 +65,7 @@ export async function generateButtons(item: IItems<string>) {
   const channelList = document.querySelector('#channel-list') as HTMLDivElement
   channelLabel.innerHtml = item.name
   channelLogo.attribute['alt'] = item.name
-  channelLogo.attribute['src'] = item.tvg.logo
+  channelLogo.attribute['src'] = item.tvg ? item.tvg.logo : ''
 
   const btn = generateNodes([channelInfo], channelList) as HTMLElement
 
@@ -105,9 +104,11 @@ function generateCategories(category: string) {
   btn.addEventListener('click', menuEventHandle.bind({}, category))
 }
 
+export let playlist: IPlaylist<string> = undefined
+
 function menuEventHandle() {
   const category = arguments[0]
-  console.log(arguments)
+
   fetch(`${TV_DOMAIN}categories/${category.toLowerCase()}.m3u`, REQUEST_INIT)
     .then(response => {
       if (response.ok) {
@@ -117,21 +118,24 @@ function menuEventHandle() {
       }
     })
     .then(response => {
-      const playlist = playlistParser(response)
+      playlist = playlistParser(response)
+
       clearList()
 
-      if ( playlist.items.length > 100) {
-        for (let i = 0; i < 100; i++) {
-          const item = playlist.items[i];
-          formatItem(item)
-        }
-      }
+      generateItems()
 
       menuHandle()
     })
 }
 
-function formatItem(item: IItems<string>) {
+export function generateItems(length = 50) {
+  console.log(playlist.items.length)
+  const l = playlist.items.length > length ? length : playlist.items.length
+
+  for (let i = 0; i < l; i++) shimsItem(playlist.items.shift())
+}
+
+function shimsItem(item: IItems<string>) {
   const qyUrl = qureyUrl(item.url)
   if (qyUrl) {
     item.url = qyUrl
@@ -142,5 +146,9 @@ function formatItem(item: IItems<string>) {
 }
 
 function clearList() {
-  document.querySelector('#channel-list')!.innerHTML = ''
+  return (document.querySelector('#channel-list')!.innerHTML = '')
+}
+
+function addMoreLabel() {
+  return document.querySelector('#channel-list')!.innerHTML += 'More ...'
 }

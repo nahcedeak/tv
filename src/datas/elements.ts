@@ -47,8 +47,8 @@ const menuButton: IElement = {
     ' focus:outline-none' +
     ' hover:text-blue-500',
   subelement: [
-    { tagName: 'i', classList: 'fad fa-yin-yang fa-pulse text-2xl' },
-    { tagName: 'i', classList: 'fad fa-times text-2xl  hidden' }
+    { tagName: 'i', classList: 'fad fa-bars text-2xl w-full h-full' },
+    { tagName: 'i', classList: 'fad fa-times text-2xl w-full h-full hidden' }
   ]
 }
 
@@ -105,14 +105,14 @@ const playerWarp: IElement = {
 
 export const rootNode: IElement = {
   tagName: 'div',
-  classList: ' bg-gray-100 font-mono ',
+  classList: ' font-mono ',
   subelement: [playerWarp]
 }
 
 export const channelLabel: IElement = {
   tagName: 'label',
   classList:
-    ' w-full text-blue-900 truncate cursor-pointer' +
+    ' w-full px-4 text-blue-900 truncate cursor-pointer' +
     ' col-span-5 row-span-1 text-center'
 }
 
@@ -120,7 +120,7 @@ export const channelLogo: IElement = {
   tagName: 'img',
   attribute: {},
   classList:
-    ' h-14 w-auto ' +
+    ' h-14 w-auto shadow-sm p-2' +
     ' col-span-4 row-span-2 object-fill justify-self-center' +
     ' text-gray-400 text-sm italic'
 }
@@ -135,7 +135,7 @@ export const channelInfo: IElement = {
   classList:
     ' mx-3 my-2 h-24 bg-white shadow-lg cursor-pointer' +
     ' font-bold antialiased text-bule-500 text-xl' +
-    ' rounded-md appearance-none ' +
+    ' rounded-md appearance-none border border-indigo-50' +
     ' grid grid-rows-3 grid-cols-5' +
     ' focus:text-purple-700 focus:outline-none' +
     ' hover:text-purple-700 hover:shadow-lg' +

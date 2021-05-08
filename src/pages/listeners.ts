@@ -1,29 +1,22 @@
 import { IItems } from '../types/playlist'
-import { randomPlay } from './make'
-
-let scrollTop = 0
-let preScroll = 0
+import { debounce } from '../utils'
+import { playlist, randomPlay } from './make'
+import { generateItems } from './make'
 
 export function addElementEventListeners(channels: IItems<string>[]) {
-  window.addEventListener('wheel', e => {
-    // console.log(e)
-    scrollTop =
-      document.documentElement.scrollTop ||
-      window.pageYOffset ||
-      document.body.scrollTop
+  document.addEventListener('wheel', debounce(scrollEventHandle, 100))
 
-    if (scrollTop > preScroll) {
-      
-      preScroll = scrollTop
-    }
-
-  })
+  document.addEventListener('scroll', debounce(scrollEventHandle, 100))
 
   document
     .querySelector('#randomBtn')
     .addEventListener('click', () => randomPlay(channels))
 
   document.querySelector('#menu-button').addEventListener('click', menuHandle)
+}
+
+function scrollEventHandle(e?: Event) {
+  if (isBottom() && playlist) generateItems(20)
 }
 
 export function menuHandle(e?: Event) {
@@ -36,4 +29,12 @@ export function menuHandle(e?: Event) {
   document
     .querySelectorAll('#menu-button>svg')
     .forEach(i => i.classList.toggle('hidden'))
+}
+
+function isBottom() {
+  const docScrollTop = document.documentElement.scrollTop
+  const docClientHeight = document.documentElement.clientHeight
+  const docScrollHeight = document.documentElement.scrollHeight
+
+  return docScrollTop + docClientHeight === docScrollHeight ? true : false
 }
