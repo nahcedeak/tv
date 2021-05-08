@@ -33,7 +33,7 @@ const menuPop: IElement = {
     ' w-auto h-auto z-10 mx-8 p-2 mt-2 right-0 bg-white hidden' +
     ' origin-top-right absolute  rounded-md shadow-2xl' +
     ' border border-indigo-50 ' +
-    ' focus:outline-none overflow-y-scroll'
+    ' focus:outline-none'
 }
 
 const menuButton: IElement = {
