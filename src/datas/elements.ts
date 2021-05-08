@@ -4,7 +4,7 @@ const randomButton: IElement = {
   tagName: 'button',
   id: 'randomBtn',
   classList:
-    ' w-10 h-10 bg-red-50 text-blue-900' +
+    ' w-10 h-10 text-blue-900' +
     ' col-span-2 row-span-1 rounded-full' +
     ' justify-self-end items-center' +
     ' focus:text-blue-500 focus:outline-none' +
@@ -41,7 +41,7 @@ const menuButton: IElement = {
   id: 'menu-button',
   attribute: { 'aria-expanded': 'true', 'aria-haspopup': 'true' },
   classList:
-    ' w-10 h-10 mt-1 bg-red-50 text-blue-900' +
+    ' w-10 h-10 mt-1 text-blue-900' +
     ' col-span-1 row-span-1 rounded-full ' +
     ' justify-self-center items-center' +
     ' focus:outline-none' +
