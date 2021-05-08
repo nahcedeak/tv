@@ -38,7 +38,7 @@ function isBottom() {
   const docClientHeight = document.documentElement.clientHeight
   const docScrollHeight = document.documentElement.scrollHeight
 
-  setElementText('#channelMessage',docScrollTop + ' ' + docClientHeight + ' ' + docScrollHeight)
+  setElementText('#channelMessage',(docScrollTop + docClientHeight - docScrollHeight).toString())
 
   return docScrollTop + docClientHeight === docScrollHeight ? true : false
 }
