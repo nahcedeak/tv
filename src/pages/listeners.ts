@@ -18,7 +18,6 @@ export function addElementEventListeners(channels: IItems<string>[]) {
 }
 
 function scrollEventHandle(e?: Event) {
- 
   if (isBottom() && playlist) generateItems(20)
 }
 
@@ -39,7 +38,7 @@ function isBottom() {
   const docClientHeight = document.documentElement.clientHeight
   const docScrollHeight = document.documentElement.scrollHeight
 
-  alert('docScrollTop,docClientHeight,docScrollHeight')
+  alert(docScrollTop + ' ' + docClientHeight + ' ' + docScrollHeight)
 
   return docScrollTop + docClientHeight === docScrollHeight ? true : false
 }
