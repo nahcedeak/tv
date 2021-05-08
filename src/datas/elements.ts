@@ -144,6 +144,6 @@ export const channelInfo: IElement = {
 }
 
 export const menuItem:IElement ={
-  tagName: 'button',
-  classList:'m-2 cursor-pointer'
+  tagName: 'div',
+  classList:'m-2 cursor-pointer inline-block'
 }
