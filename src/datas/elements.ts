@@ -2,7 +2,7 @@ import { IElement } from '../types/element'
 
 const randomButton: IElement = {
   tagName: 'button',
-  id: 'randomBtn',
+  id: 'random-button',
   classList:
     ' w-10 h-10 text-blue-900' +
     ' col-span-2 row-span-1 rounded-full' +
@@ -14,7 +14,7 @@ const randomButton: IElement = {
 
 const channelMessage: IElement = {
   tagName: 'div',
-  id: 'channelMessage',
+  id: 'channel-message',
   classList:
     ' col-span-6 row-span-1 justify-self-center' +
     ' text-2xl text-blue-900 font-bold'

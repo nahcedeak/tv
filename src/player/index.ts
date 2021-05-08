@@ -64,7 +64,7 @@ export function prePlay() {
   const preUrl = localStorage.getItem('preUrl')
   const preName = localStorage.getItem('preName')
   player(preUrl, preName)
-  setElementText('#channelMessage', preName)
+  setElementText('#channel-message', preName)
 }
 
 var isFullScreen = function () {

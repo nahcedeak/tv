@@ -9,7 +9,7 @@ export function addElementEventListeners(channels: IItems<string>[]) {
   document.addEventListener('scroll', debounce(scrollEventHandle, 500))
 
   document
-    .querySelector('#randomBtn')
+    .querySelector('#random-button')
     .addEventListener('click', () => randomPlay(channels))
 
   document
@@ -18,7 +18,10 @@ export function addElementEventListeners(channels: IItems<string>[]) {
 }
 
 function scrollEventHandle(e?: Event) {
-  if (isBottom() && playlist) generateItems(20)
+  testScroll()
+  if (isBottom() && playlist) {
+    generateItems(20)
+  }
 }
 
 export function menuHandle(e?: Event) {
@@ -38,7 +41,33 @@ function isBottom() {
   const docClientHeight = document.documentElement.clientHeight
   const docScrollHeight = document.documentElement.scrollHeight
 
-  setElementText('#channelMessage',(docScrollTop + docClientHeight - docScrollHeight).toString())
+  // setElementText(
+  //   '#channel-message',
+  //   (docScrollTop + docClientHeight - docScrollHeight).toString()
+  // )
 
   return docScrollTop + docClientHeight === docScrollHeight ? true : false
+}
+
+function testScroll() {
+  setElementText('#channel-message',
+    `doc body clientWidth [ ${document.body.clientWidth} ]
+    doc body clientHeight [ ${document.body.clientHeight} ]
+    doc body offsetWidth [ ${document.body.offsetWidth} ]
+    doc body offsetHeight [ ${document.body.offsetHeight} ]
+    doc body scrollWidth [ ${document.body.scrollWidth} ]
+    doc body scrollHeight [ ${document.body.scrollHeight} ]
+    doc body scrollTop [ ${document.body.scrollTop} ]
+    doc body scrollLeft [ ${document.body.scrollLeft} ]
+    win screenTop [ ${window.screenTop} ] 
+    win screenLeft [ ${window.screenLeft} ] 
+    win screen.height [ ${window.screen.height} ]
+    win screen.width [ ${window.screen.width} ]
+    win screen.availHeight [ ${window.screen.availHeight} ]
+    win screen.availWidth [ ${window.screen.availWidth} ]
+    doc ele scrollTop [ ${document.documentElement.scrollTop} ]
+    doc ele clientHeight [ ${document.documentElement.clientHeight} ]
+    doc ele scrollHeight [ ${document.documentElement.scrollHeight} ]
+    `
+  )
 }

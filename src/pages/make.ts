@@ -75,7 +75,7 @@ export async function generateButtons(item: IItems<string>) {
 function play() {
   const item = arguments[0]
   player(item.url, item.name)
-  setElementText('#channelMessage', item.name)
+  setElementText('#channel-message', item.name)
 }
 
 export function randomPlay(item: IItems<string>[]) {
@@ -83,9 +83,9 @@ export function randomPlay(item: IItems<string>[]) {
   const qyUrl = qureyUrl(item[index].url)
   if (qyUrl) {
     player(item[index].url, item[index].name)
-    setElementText('#channelMessage', item[index].name)
+    setElementText('#channel-message', item[index].name)
   } else {
-    setElementText('no channel')
+    setElementText('#channel-message','no channel')
   }
 }
 
@@ -129,7 +129,6 @@ function menuEventHandle() {
 }
 
 export function generateItems(length = 50) {
-  console.log(playlist.items.length)
   const l = playlist.items.length > length ? length : playlist.items.length
 
   for (let i = 0; i < l; i++) shimsItem(playlist.items.shift())
