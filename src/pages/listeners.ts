@@ -4,9 +4,9 @@ import { playlist, randomPlay } from './make'
 import { generateItems } from './make'
 
 export function addElementEventListeners(channels: IItems<string>[]) {
-  document.addEventListener('wheel', debounce(scrollEventHandle, 100))
+  document.addEventListener('wheel', debounce(scrollEventHandle, 500))
 
-  document.addEventListener('scroll', debounce(scrollEventHandle, 100))
+  document.addEventListener('scroll', debounce(scrollEventHandle, 500))
 
   document
     .querySelector('#randomBtn')
@@ -16,6 +16,7 @@ export function addElementEventListeners(channels: IItems<string>[]) {
 }
 
 function scrollEventHandle(e?: Event) {
+  if (isBottom()) alert('bottom')
   if (isBottom() && playlist) generateItems(20)
 }
 
