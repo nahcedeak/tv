@@ -4,9 +4,9 @@ import { playlist, randomPlay } from './make'
 import { generateItems } from './make'
 
 export function addElementEventListeners(channels: IItems<string>[]) {
-  document.addEventListener('wheel', debounce(scrollEventHandle, 500))
+  document.addEventListener('wheel', debounce(scrollEventHandle, 200))
 
-  document.addEventListener('scroll', debounce(scrollEventHandle, 500))
+  document.addEventListener('scroll', debounce(scrollEventHandle, 200))
 
   document
     .querySelector('#random-button')
@@ -14,12 +14,14 @@ export function addElementEventListeners(channels: IItems<string>[]) {
 
   document
     .querySelector('#menu-button')
-    .addEventListener('click', debounce(menuHandle, 500))
+    .addEventListener('click', debounce(menuHandle, 50))
 }
 
 function scrollEventHandle(e?: Event) {
   // setElementText('#channel-message',navigator.userAgent)
   // testScroll()
+  const rb = document.querySelector('#random-button>svg')
+  rb.classList.toggle('fa-spin')
   if (isBottom() && playlist) {
     generateItems(20)
   }
@@ -52,7 +54,8 @@ function isBottom() {
 
 function testScroll() {
   console.log(
-    `doc body clientWidth [ ${document.body.clientWidth} ]
+    `
+    doc body clientWidth [ ${document.body.clientWidth} ]
     doc body clientHeight [ ${document.body.clientHeight} ]
     doc body offsetWidth [ ${document.body.offsetWidth} ]
     doc body offsetHeight [ ${document.body.offsetHeight} ]

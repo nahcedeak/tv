@@ -104,7 +104,7 @@ function generateCategories(category: string) {
   btn.addEventListener('click', menuEventHandle.bind({}, category))
 }
 
-export let playlist: IPlaylist<string> = undefined
+export let playlist: IPlaylist<string> = null
 
 function menuEventHandle() {
   const category = arguments[0]
@@ -128,7 +128,7 @@ function menuEventHandle() {
     })
 }
 
-export function generateItems(length = 50) {
+export function generateItems(length = 88) {
   const l = playlist.items.length > length ? length : playlist.items.length
 
   for (let i = 0; i < l; i++) shimsItem(playlist.items.shift())
