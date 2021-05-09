@@ -1,15 +1,9 @@
 import { Pages } from './pages'
 
-document.addEventListener('DOMContentLoaded',  () => {
-  console.log('DOMContentLoaded')
+document.addEventListener('DOMContentLoaded', () => {
   new Pages().init()
 })
 
-window.addEventListener('load',  () => {
-  console.log('load')
-
-})
+window.addEventListener('load', () => {})
 
 
-
-// console.log(window, document)
