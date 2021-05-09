@@ -29,7 +29,7 @@ const tabLanguage: IElement = {
     {
       tagName: 'span',
       classList: 'py-2 px-5 rounded-full inline-block ',
-      innerHtml: 'Language'
+      innerHtml: 'Languages'
     }
   ]
 }
@@ -40,7 +40,7 @@ const tabCountry: IElement = {
     {
       tagName: 'span',
       classList: 'py-2 px-5 rounded-full inline-block',
-      innerHtml: 'Country'
+      innerHtml: 'Countries'
     }
   ]
 }
@@ -51,7 +51,7 @@ const tabCategory: IElement = {
     {
       tagName: 'span',
       classList: 'py-2 px-5 rounded-full inline-block',
-      innerHtml: 'Category'
+      innerHtml: 'categories'
     }
   ]
 }
