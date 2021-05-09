@@ -32,6 +32,7 @@ export function menuHandle(e?: Event) {
   ) as HTMLButtonElement
   channelList.classList.toggle('blur-sm')
 
+  document.querySelector('#video-wrap').classList.toggle('sticky')
   document.querySelector('#menu-pop').classList.toggle('hidden')
   document
     .querySelectorAll('#menu-button>svg')

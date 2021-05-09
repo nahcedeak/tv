@@ -80,8 +80,9 @@ const videoElement: IElement = {
   classList: 'outline-none'
 }
 
-const videoWarp: IElement = {
+const videoWrap: IElement = {
   tagName: 'div',
+  id: 'video-wrap',
   classList:
     ' top-0 bg-gray-800 rounded-b-3xl z-40 sticky' + //sticky
     ' grid justify-items-center',
@@ -99,15 +100,15 @@ const channels: IElement = {
     
 }
 
-const playerWarp: IElement = {
+const playerWrap: IElement = {
   tagName: 'div',
-  subelement: [videoWarp, channels]
+  subelement: [videoWrap, channels]
 }
 
 export const rootNode: IElement = {
   tagName: 'div',
   classList: ' font-mono ',
-  subelement: [playerWarp]
+  subelement: [playerWrap]
 }
 
 export const channelLabel: IElement = {
