@@ -70,8 +70,6 @@ export async function generateButtons(item: IItems<string>) {
 
 function play() {
   const item = arguments[0]
-  console.log(item)
-
   player(item)
   setElementText('#channel-message', item)
 }
@@ -96,12 +94,14 @@ export function generateMenu(
     generateCategories([key, lang[key], 'languages'], 'language')
 
   for (const key in country)
-    generateCategories([key, lang[key], 'countries'], 'country')
+    generateCategories([key, country[key], 'countries'], 'country')
 
   categories.forEach(category => generateCategories(category, 'category'))
 }
 
 function generateCategories(category: string | object, tab = 'category') {
+  //  console.log(category);
+
   const _tab =
     tab === 'language'
       ? '#tab-language'
@@ -115,7 +115,10 @@ function generateCategories(category: string | object, tab = 'category') {
 
   const btn = generateNodes([menuItem], e) as HTMLElement
 
-  btn.addEventListener('click', menuEventHandle.bind({}, category))
+  btn.addEventListener(
+    'click',
+    debounce(menuEventHandle.bind({}, category), 200)
+  )
 }
 
 export let playlist: IPlaylist<string> = null
@@ -149,7 +152,7 @@ function menuEventHandle() {
 
 export function generateItems(length = 88) {
   const l = playlist.items.length > length ? length : playlist.items.length
-
+  console.log(`${playlist.items.length} channel`)
   for (let i = 0; i < l; i++) shimsItem(playlist.items.shift())
 }
 

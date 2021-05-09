@@ -1,4 +1,9 @@
-import { M3U_JP, TV_DOMAIN } from '../datas/constants'
+import {
+  CHANNEL_HK,
+  CHANNEL_JP,
+  CHANNEL_TW,
+  TV_DOMAIN
+} from '../datas/constants'
 import { rootNode } from '../components'
 import { prePlay } from '../player'
 import { playlistParser, qureyUrl } from '../utils'
@@ -13,7 +18,7 @@ export class Pages {
   init() {
     const body = document.querySelector('body') as HTMLElement
     // `${TV_DOMAIN}index.m3u`
-    fetch(`${TV_DOMAIN}index.m3u`, )
+    fetch(`${TV_DOMAIN}index.m3u`)
       .then(response => {
         if (response.ok) {
           return response.text()
@@ -25,7 +30,7 @@ export class Pages {
         this.playlist = playlistParser(response)
         this.channels = this.playlist.items
 
-        const pl = playlistParser(M3U_JP)
+        const pl = playlistParser(CHANNEL_JP + CHANNEL_HK + CHANNEL_TW)
 
         localStorage.setItem('length', this.channels.length.toString())
 
@@ -44,7 +49,7 @@ export class Pages {
         prePlay()
 
         addElementEventListeners(this.channels)
-        generateMenu(languages,countries,categories)
+        generateMenu(languages, countries, categories)
       })
   }
 }

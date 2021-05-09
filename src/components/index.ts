@@ -1,16 +1,24 @@
 import { IElement } from '../types/element'
 import { bars } from './menu'
 
+export const BG = 'bg-white',
+  TX = 'text-black',
+  DK_BG = 'bg-gray-800',
+  DK_TX = 'text-white',
+  FO_BG = '',
+  FO_TX = '',
+  HO_BG = '',
+  HO_TX = ''
 
 const randomButton: IElement = {
   tagName: 'button',
   id: 'random-button',
-  classList:
-    ' w-10 h-10 text-blue-900' +
-    ' col-span-2 row-span-1 rounded-full' +
-    ' justify-self-end items-center' +
-    ' focus:text-blue-500 focus:outline-none' +
-    ' hover:text-blue-500',
+  classList: ` 
+    w-10 h-10 text-blue-900 
+    col-span-2 row-span-1 rounded-full
+    justify-self-end items-center' +
+    focus:text-blue-500 focus:outline-none
+    hover:text-blue-500`,
   subelement: [{ tagName: 'i', classList: 'fad fa-random text-2xl' }]
 }
 
@@ -21,8 +29,6 @@ const channelMessage: IElement = {
     ' col-span-6 row-span-1 justify-self-center' +
     ' text-2xl text-blue-900 font-bold cursor-wait'
 }
-
-
 
 const navigate: IElement = {
   tagName: 'figure',
@@ -71,7 +77,7 @@ const playerWrap: IElement = {
 
 export const rootNode: IElement = {
   tagName: 'div',
-  classList: ' font-mono ',
+  classList: ' font-mono dark:bg-gray-700 dark:text-purple-700',
   subelement: [playerWrap]
 }
 
@@ -105,7 +111,7 @@ export const channelInfo: IElement = {
     ' grid grid-rows-3 grid-cols-5' +
     ' focus:text-purple-700 focus:outline-none' +
     ' hover:text-purple-700 hover:shadow-lg' +
-    ' transform hover:scale-105',
+    ' transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105',
   subelement: [channelLabel, channelLogo, icon]
 }
 
