@@ -1,5 +1,5 @@
 import { TV_DOMAIN } from './datas/constants'
-import { IPlaylist } from './types/playlist'
+import { IItems, IPlaylist } from './types/playlist'
 
 const SPACE_RE = /\s+/g
 const MEDIE_URL_RE = /^https?:\/\/(.*?)\.m3u8?$/
@@ -14,7 +14,6 @@ export function deDupsClasslist(classlist: string): string[] {
   return [...list]
 }
 
-
 export function qureyUrl(url: string): string | null {
   if (MEDIE_URL_RE.test(url)) {
     return url.indexOf('https') > -1 ? url : url.replace('http', 'https')
@@ -22,7 +21,7 @@ export function qureyUrl(url: string): string | null {
   return null
 }
 
-export function qureyPath(categories:string) {
+export function qureyPath(categories: string) {
   const filter = (arr: string[]) => arr.filter(key => key.trim() !== '')
   const p = filter(categories.split(PATH_RE))
   return `${TV_DOMAIN}/`
@@ -168,22 +167,21 @@ export function getMystical() {
   return mystical
 }
 
-export function setElementText(selectors: string,text = '') {
+export function setElementText(selectors: string, item: IItems<string>) {
   const element = document.querySelector(selectors)
-  element.innerHTML = text
+  element.innerHTML = item.name
+  console.log(item)
 }
 
-export function debounce(fn: EventListener,delay = 888) {
+export function debounce(fn: EventListener, delay = 888) {
   let timer: any
   return function () {
     const context = this
     const args = arguments
-    
+
     clearTimeout(timer)
     timer = setTimeout(() => {
-      fn.apply(context,args)
+      fn.apply(context, args)
     }, delay)
   }
 }
-
-

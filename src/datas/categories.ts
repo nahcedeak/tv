@@ -30,7 +30,7 @@ export const categories = [
   'Other'
 ]
 
-interface ILanguageAndCountry {
+export interface ILanguageAndCountry {
   [key: string]: string
 }
 

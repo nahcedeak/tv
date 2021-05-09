@@ -4,7 +4,7 @@ module.exports = {
   purge: {
     mode: 'all',
     preserveHtmlElements: false,
-    content: ['./src/**/*.{js,jsx,ts,tsx,vue}', './*.html'],
+    content: ['./src/**/*.{js,jsx,ts,tsx,vue}', './*.html','./src/**/*.{css,sass}'],
     keyframes: true,
     fontFace: true
   },

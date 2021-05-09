@@ -7,16 +7,12 @@ import {
 } from '../utils'
 import { IElement } from '../types/element'
 import { IItems, IPlaylist } from '../types/playlist'
-import {
-  channelInfo,
-  channelLabel,
-  channelLogo,
-  menuItem
-} from '../datas/elements'
+import { channelInfo, channelLabel, channelLogo, menuItem } from '../components'
 import { player } from '../player'
-import { categories } from '../datas/categories'
+
 import { REQUEST_INIT, TV_DOMAIN } from '../datas/constants'
 import { menuHandle } from './listeners'
+import { ILanguageAndCountry } from '../datas/categories'
 
 export function generateNodes(
   nodeDatas: IElement[],
@@ -74,32 +70,50 @@ export async function generateButtons(item: IItems<string>) {
 
 function play() {
   const item = arguments[0]
-  player(item.url, item.name)
-  setElementText('#channel-message', item.name)
+  console.log(item)
+
+  player(item)
+  setElementText('#channel-message', item)
 }
 
 export function randomPlay(item: IItems<string>[]) {
   const index = Math.ceil(Math.random() * item.length)
   const qyUrl = qureyUrl(item[index].url)
   if (qyUrl) {
-    player(item[index].url, item[index].name)
-    setElementText('#channel-message', item[index].name)
+    player(item[index])
+    setElementText('#channel-message', item[index])
   } else {
-    setElementText('#channel-message','no channel')
+    setElementText('#channel-message', { name: 'no channel' })
   }
 }
 
-export function generateMenu() {
-  categories.forEach(category => {
-    generateCategories(category)
-  })
+export function generateMenu(
+  lang: ILanguageAndCountry,
+  country: ILanguageAndCountry,
+  categories: string[]
+) {
+  for (const key in lang)
+    generateCategories([key, lang[key], 'languages'], 'language')
+
+  for (const key in country)
+    generateCategories([key, lang[key], 'countries'], 'country')
+
+  categories.forEach(category => generateCategories(category, 'category'))
 }
 
-function generateCategories(category: string) {
-  const menuPop = document.querySelector('#menu-pop') as HTMLElement
-  menuItem.innerHtml = category
+function generateCategories(category: string | object, tab = 'category') {
+  const _tab =
+    tab === 'language'
+      ? '#tab-language'
+      : tab === 'country'
+      ? '#tab-country'
+      : '#tab-category'
+  const label = typeof category === 'string' ? category : category[0]
+  const e = document.querySelector(_tab) as HTMLElement
 
-  const btn = generateNodes([menuItem], menuPop) as HTMLElement
+  menuItem.innerHtml = label
+
+  const btn = generateNodes([menuItem], e) as HTMLElement
 
   btn.addEventListener('click', menuEventHandle.bind({}, category))
 }
@@ -107,9 +121,14 @@ function generateCategories(category: string) {
 export let playlist: IPlaylist<string> = null
 
 function menuEventHandle() {
-  const category = arguments[0]
+  const _category = arguments[0]
+  let shimsUrl: string
+  if (typeof _category === 'string')
+    shimsUrl = `categories/${_category.toLowerCase()}`
+  else shimsUrl = `${_category[2]}/${_category[1]}`
 
-  fetch(`${TV_DOMAIN}categories/${category.toLowerCase()}.m3u`, REQUEST_INIT)
+  console.log(shimsUrl)
+  fetch(`${TV_DOMAIN}${shimsUrl}.m3u`, REQUEST_INIT)
     .then(response => {
       if (response.ok) {
         return response.text()
@@ -149,5 +168,5 @@ function clearList() {
 }
 
 function addMoreLabel() {
-  return document.querySelector('#channel-list')!.innerHTML += 'More ...'
+  return (document.querySelector('#channel-list')!.innerHTML += 'More ...')
 }

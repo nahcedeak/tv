@@ -8,3 +8,24 @@
 .no-drag {
   -webkit-app-region: no-drag;
 }
+
+#radio-category:checked ~ #tab-category {
+  @apply flex;
+}
+#radio-country:checked ~ #tab-country {
+  @apply flex;
+}
+#radio-language:checked ~ #tab-language {
+  @apply flex;
+}
+
+
+#radio-category:checked ~ .nav label[for='radio-category'] span {
+  @apply bg-blue-900 text-white;
+}
+#radio-country:checked ~ .nav label[for='radio-country'] span {
+  @apply bg-blue-900 text-white;
+}
+#radio-language:checked ~ .nav label[for='radio-language'] span {
+  @apply bg-blue-900 text-white;
+}

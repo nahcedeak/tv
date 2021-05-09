@@ -1,4 +1,6 @@
 import { IElement } from '../types/element'
+import { bars } from './menu'
+
 
 const randomButton: IElement = {
   tagName: 'button',
@@ -17,47 +19,10 @@ const channelMessage: IElement = {
   id: 'channel-message',
   classList:
     ' col-span-6 row-span-1 justify-self-center' +
-    ' text-2xl text-blue-900 font-bold'
+    ' text-2xl text-blue-900 font-bold cursor-wait'
 }
 
-const menuPop: IElement = {
-  tagName: 'div',
-  id: 'menu-pop',
-  attribute: {
-    role: 'menu',
-    'aria-orientation': 'vertical',
-    'aria-labelledby': 'menu-button',
-    tabindex: '-1'
-  },
-  classList:
-    ' w-auto h-auto z-10 mx-8 p-2 mt-2 right-0 bg-white hidden' +
-    ' origin-top-right absolute  rounded-md shadow-2xl' +
-    ' border border-indigo-50 ' +
-    ' focus:outline-none'
-}
 
-const menuButton: IElement = {
-  tagName: 'button',
-  id: 'menu-button',
-  attribute: { 'aria-expanded': 'true', 'aria-haspopup': 'true' },
-  classList:
-    ' w-10 h-10 mt-1 text-blue-900' +
-    ' col-span-1 row-span-1 rounded-full ' +
-    ' justify-self-center items-center' +
-    ' focus:outline-none' +
-    ' hover:text-blue-500',
-  subelement: [
-    { tagName: 'i', classList: 'fad fa-bars text-2xl w-full h-full' },
-    { tagName: 'i', classList: 'fad fa-times text-2xl w-full h-full hidden' }
-  ]
-}
-
-const bars: IElement = {
-  tagName: 'div',
-  id: 'bars',
-  classList: 'col-span-2 row-span-1 justify-self-start',
-  subelement: [menuButton, menuPop]
-}
 
 const navigate: IElement = {
   tagName: 'figure',
@@ -84,7 +49,7 @@ const videoWrap: IElement = {
   tagName: 'div',
   id: 'video-wrap',
   classList:
-    ' top-0 bg-gray-800 rounded-b-3xl z-40 sticky' + //sticky
+    ' top-0 bg-gray-800 rounded-b-3xl z-10 sticky' + //sticky
     ' grid justify-items-center',
   subelement: [videoElement, navigate]
 }
@@ -94,10 +59,9 @@ const channels: IElement = {
   id: 'channel-list',
   attribute: { disabled: '' }, // disabled: '',
   classList:
-    ' h-max filter' +
+    ' h-max filter ' +
     ' grid grid-cols-1 gap-1' +
-    ' sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6',
-    
+    ' sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
 }
 
 const playerWrap: IElement = {
@@ -146,10 +110,10 @@ export const channelInfo: IElement = {
 }
 
 export const menuItem: IElement = {
-  tagName: 'div',
+  tagName: 'button',
   classList:
-    ' m-1 px-4 text-blue-900 ' +
+    ' m-3 px-5 py-2 text-blue-900 text-xl font-semibold' +
     ' rounded-full shadow-md antialiased  cursor-pointer' +
-    ' inline-block border border-indigo-50' +
-    ' hover:bg-gray-100'
+    ' border border-indigo-50' +
+    ' hover:bg-gray-100 focus:outline-none'
 }

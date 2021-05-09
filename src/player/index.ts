@@ -1,3 +1,4 @@
+import { IItems } from '../types/playlist'
 import { setElementText } from '../utils'
 import { Hls } from './hls'
 
@@ -9,17 +10,17 @@ const config = {
   maxBufferLength: 6,
   maxMaxBufferLength: 6,
   backBufferLength: 30,
-  maxBufferSize: 60 * 1000,
+  maxBufferSize: 30 * 1000,
   maxBufferHole: 0.5
 }
-export function player(url: string, name: string) {
+export function player(item: IItems<string>) {
   const video = document.querySelector('video') as HTMLVideoElement
 
   video.volume = 0.5
   const hls = new Hls(config)
   hls.attachMedia(video)
   hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-    hls.loadSource(url) //https://12156.vod.adultiptv.net/ph5adecf7111738/play.m3u8
+    hls.loadSource(item.url) //https://12156.vod.adultiptv.net/ph5adecf7111738/play.m3u8
   })
 
   hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
@@ -48,8 +49,7 @@ export function player(url: string, name: string) {
       })
     }
 
-    localStorage.setItem('preName', name)
-    localStorage.setItem('preUrl', url)
+    localStorage.setItem('previous', JSON.stringify(item))
   })
 
   hls.on(Hls.Events.ERROR, (event, data) => {
@@ -61,10 +61,11 @@ export function player(url: string, name: string) {
 }
 
 export function prePlay() {
-  const preUrl = localStorage.getItem('preUrl')
-  const preName = localStorage.getItem('preName')
-  player(preUrl, preName)
-  setElementText('#channel-message', preName)
+  const previous = JSON.parse(localStorage.getItem('previous'))
+  if (previous) {
+    player(previous)
+    setElementText('#channel-message', previous)
+  }
 }
 
 var isFullScreen = function () {

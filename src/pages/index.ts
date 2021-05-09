@@ -1,10 +1,11 @@
 import { M3U_JP, TV_DOMAIN } from '../datas/constants'
-import { rootNode } from '../datas/elements'
+import { rootNode } from '../components'
 import { prePlay } from '../player'
 import { playlistParser, qureyUrl } from '../utils'
 import { generateButtons, generateMenu, generateNodes } from './make'
 import { IItems, IPlaylist } from '../types/playlist'
 import { addElementEventListeners } from './listeners'
+import { categories, countries, languages } from '../datas/categories'
 
 export class Pages {
   private playlist: IPlaylist<string>
@@ -43,7 +44,7 @@ export class Pages {
         prePlay()
 
         addElementEventListeners(this.channels)
-        generateMenu()
+        generateMenu(languages,countries,categories)
       })
   }
 }

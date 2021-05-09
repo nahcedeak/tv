@@ -30,8 +30,10 @@ export function menuHandle(e?: Event) {
   const channelList = document.querySelector(
     '#channel-list'
   ) as HTMLButtonElement
-  channelList.classList.toggle('blur-sm')
+  window.scroll(0,0)
 
+  channelList.classList.toggle('blur-sm')
+  
   document.querySelector('#video-wrap').classList.toggle('sticky')
   document.querySelector('#menu-pop').classList.toggle('hidden')
   document
@@ -43,11 +45,6 @@ function isBottom() {
   const docScrollTop = document.documentElement.scrollTop
   const docClientHeight = document.documentElement.clientHeight
   const docScrollHeight = document.documentElement.scrollHeight
-
-  // setElementText(
-  //   '#channel-message',
-  //   (docScrollTop + docClientHeight - docScrollHeight).toString()
-  // )
 
   return docScrollTop + docClientHeight === docScrollHeight ? true : false
 }
