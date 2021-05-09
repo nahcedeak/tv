@@ -112,7 +112,7 @@ export const channelInfo: IElement = {
 export const menuItem: IElement = {
   tagName: 'button',
   classList:
-    ' m-3 px-5 py-2 text-blue-900 text-xl font-semibold' +
+    ' m-2 px-3 py-1 text-blue-900 text-md font-semibold' +
     ' rounded-full shadow-md antialiased  cursor-pointer' +
     ' border border-indigo-50' +
     ' hover:bg-gray-100 focus:outline-none'

@@ -58,7 +58,7 @@ const tabCategory: IElement = {
 
 const classificationTab: IElement = {
   tagName: 'div',
-  classList: 'my-1 nav uppercase text-3xl font-bold',
+  classList: 'my-1 nav uppercase text-md font-bold justify-center',
   subelement: [tabLanguage, tabCountry, tabCategory]
 }
 
